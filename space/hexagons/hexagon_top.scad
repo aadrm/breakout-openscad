@@ -1,10 +1,13 @@
 // Spacelab hexagons riddle
 hex_radius=70;
-hex_height=10;
+hex_height=7;
 hex_frame_height=5;
 hex_frame_width=5;
 display_digit=3;
 digit_scale=4.5;
+
+
+use <hexagon.scad>
 
 ptSegment = [                                                                   
     [ [-0, 0], [-8, 0], [-8, 2], [-0, 2] ],                    
@@ -44,19 +47,10 @@ module DisplayMirroredDigit(number, scaling, height) {
     }
 }
 
-// Base shape
-module HexagonBase(r, height, frame_height, frame_width){
-
-    rotate([0,0,30])
-    difference() {
-        cylinder($fn=6, r=r, h=height);
-        translate([0, 0, frame_height]) {
-            cylinder($fn=6, r = (r-frame_width), h=frame_height);
-        }
-    }
-}
-
 difference() {
-    HexagonBase(hex_radius, hex_height, hex_frame_height, hex_frame_width);
+    difference() {
+        Hexagon(hex_radius, hex_height);
+            Hexagon(hex_radius - hex_frame_width, hex_frame_height);
+    }
     DisplayMirroredDigit(display_digit, digit_scale, hex_height);
 }

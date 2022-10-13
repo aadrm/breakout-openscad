@@ -11,7 +11,7 @@ linear_extrude(height)
     text(ch, font_size, halign="center", valign="center");
 }
 translate([o, o, 0])
-letter("H");
+letter("D");
 difference() {
     cube([square_size,square_size,height]);
         translate([border,border,profile])
