@@ -79,12 +79,22 @@ module connector(
 connector(
     out_r = 22,
     in_r = 22,
-    h = 30,
+    h = 25,
     flange = 15,
-    thickness = 2,
+    thickness = 1.5,
     angle = 35,
     connector_h = 10
-);
+ );
+
+// connector(
+//     out_r = 27,
+//     in_r = 27,
+//     h = 27,
+//     flange = 15,
+//     thickness = 1.5,
+//     angle = 35,
+//     connector_h = 10
+// );
 
 // connector_square(
 //     out_l = 55,
